@@ -1,0 +1,27 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        jcenter()
+    }
+}
+
+apply from: 'common.gradle'
+apply from: 'sourcesets.gradle'
+
+sourceCompatibility = 1.8
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    testCompile 'junit:junit:4.12'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'mmyrland.Application'
+    }
+    baseName = project.name
+    version = '0.1.0'
+}
