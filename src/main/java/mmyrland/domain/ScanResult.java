@@ -51,12 +51,13 @@ public class ScanResult {
 
     @Override
     public String toString() {
-        return "ScanResult{" +
+        return "\n----------------------" +
+                "\nScanResult:" +
                 "\n----------------------" +
-                "\nnumFiles = " + numFiles +
+                "\nnumFiles =       " + numFiles +
                 "\nnumDirectories = " + numDirectories +
-                "\ntotalBytes = " + totalBytes +
-                "\navgBytes = " + avgBytes +
+                "\ntotalBytes =     " + totalBytes +
+                "\navgBytes =       " + avgBytes +
                 "\n----------------------";
     }
 }

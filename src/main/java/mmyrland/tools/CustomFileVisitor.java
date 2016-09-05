@@ -63,7 +63,7 @@ public class CustomFileVisitor extends SimpleFileVisitor<Path> {
 
     ScanResult done() {
         long avgBytes;
-//        if(numberDirectories == 0){ throw new IllegalArgumentException("directory not found.");}
+        if(numberDirectories == 0){ throw new IllegalArgumentException("directory not found.");}
         // Don't want to divide by zero of course.
         // Error shouldn't be thrown when no files are present -
         // scan results can still provide info.
