@@ -27,7 +27,7 @@ Command line application that scans file tree given a starting directory and rep
 
 ## To run the application:
 * from project directory, run `./gradlew build jar`
-* then run `java -jar build/libs/swiffer-service.jar and pass it a directory string as an argument`
+* then run `java -jar build/libs/swiffer-service-0.1.0.jar and pass it a directory string as an argument`
 
 ## Sample output
 
