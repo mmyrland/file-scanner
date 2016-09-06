@@ -5,8 +5,10 @@ buildscript {
     }
 }
 
-apply from: 'common.gradle'
-apply from: 'sourcesets.gradle'
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'idea'
+apply plugin: 'maven-publish'
 
 sourceCompatibility = 1.8
 
@@ -17,6 +19,31 @@ repositories {
 dependencies {
     testCompile 'junit:junit:4.12'
 }
+
+idea {
+    module {
+        inheritOutputDirs = false
+        outputDir = file("$buildDir/classes/main/")
+
+        testSourceDirs += file('src/test/java')
+        testSourceDirs += file('src/test/groovy')
+        testSourceDirs += file('src/integration/java')
+        testSourceDirs += file('src/integration/groovy')
+    }
+}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+// Always generate a source jar
+task sourceJar(type: Jar, dependsOn: classes) {
+    from sourceSets.main.allSource
+    baseName = project.name
+    classifier = 'sources'
+}
+
+
+// Add the sourceJars to non-extractor modules
+artifacts { archives sourceJar }
 
 jar {
     manifest {
